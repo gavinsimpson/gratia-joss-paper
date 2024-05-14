@@ -23,7 +23,7 @@ journal: JOSS
 
 # Summary
 
-Blah Blah Blah Blah Blah
+Blah Blah Blah Blah Blah Blah
 
 # Statement of need
 

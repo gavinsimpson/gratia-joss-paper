@@ -50,3 +50,6 @@ rsconnect/
 
 # MaxOS files
 .DS_store
+
+# ignore the log file
+paper.log

@@ -21,7 +21,7 @@ jobs:
           use-public-rspm: true
 
       - name: Setup Texlive
-        run: sudo apt-get update && sudo apt-get install texlive-xelatex
+        run: sudo apt-get update && sudo apt-get install texlive-xetex
 
       - uses: r-lib/actions/setup-renv@v2
 

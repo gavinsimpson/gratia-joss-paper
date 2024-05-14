@@ -48,6 +48,9 @@ Taking a Bayesian approach to smoothing with penalized splines, it can be shown 
 
 ```{r load-packages}
 library("mgcv")
+library("gamair")
 library("gratia")
 library("ggplot2")
+
+data(chl, package = "gamair")
 ```

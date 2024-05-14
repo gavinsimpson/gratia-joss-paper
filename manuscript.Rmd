@@ -26,3 +26,9 @@ journal: JOSS
 Blah Blah
 
 # Statement of need
+
+```{r load-packages}
+library("mgcv")
+library("gratia")
+library("ggplot2")
+```

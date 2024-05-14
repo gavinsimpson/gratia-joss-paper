@@ -53,4 +53,6 @@ library("gratia")
 library("ggplot2")
 
 data(chl, package = "gamair")
+
+m <- gam(chl ~ s(lon, lat, bs = "sos"), data = chl, method = "REML")
 ```

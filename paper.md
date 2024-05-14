@@ -52,6 +52,83 @@ library("mgcv")
 library("gamair")
 library("gratia")
 library("ggplot2")
+library("dplyr")
+```
 
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following object is masked from 'package:nlme':
+## 
+##     collapse
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+
+```r
 data(chl, package = "gamair")
+chl <- chl |>
+  as_tibble()
+chl
+```
+
+```
+## # A tibble: 13,840 x 6
+##        lon   lat jul.day  bath   chl chl.sw
+##      <dbl> <dbl>   <int> <int> <dbl>  <dbl>
+##  1 -0.0018  60.0     148   120  1.5   1.01 
+##  2 -0.002   60.4     267   110  0.9   1.23 
+##  3 -0.0058  72.7     204  2739  0.4   0.391
+##  4 -0.0173  50.6     110    44  0.48  1.76 
+##  5 -0.0227  53.9     212     4  0.4   2.06 
+##  6 -0.0277  53.9     212     4  0.6   2.06 
+##  7 -0.0327  50.3     124    50  1.05  1.73 
+##  8 -0.0671  55.5     273    62  1.1   1.17 
+##  9 -0.0704  50.6     109    44  1.5   1.75 
+## 10 -0.0707  53.6     137     6  2.65 12.3  
+## # i 13,830 more rows
+```
+
+
+```r
+m <- gam(chl ~ s(lon, lat, bs = "sos"), data = chl, method = "REML")
+summary(m)
+```
+
+```
+## 
+## Family: gaussian 
+## Link function: identity 
+## 
+## Formula:
+## chl ~ s(lon, lat, bs = "sos")
+## 
+## Parametric coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  1.59802    0.01766   90.51   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Approximate significance of smooth terms:
+##              edf Ref.df     F p-value    
+## s(lon,lat) 45.42     49 65.38  <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## R-sq.(adj) =  0.188   Deviance explained = 19.1%
+## -REML =  29847  Scale est. = 4.3144    n = 13840
 ```

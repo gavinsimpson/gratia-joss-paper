@@ -51,8 +51,17 @@ library("mgcv")
 library("gamair")
 library("gratia")
 library("ggplot2")
+library("dplyr")
+```
 
+```{r load-data}
 data(chl, package = "gamair")
+chl <- chl |>
+  as_tibble()
+chl
+```
 
+```{r fit-chl-model}
 m <- gam(chl ~ s(lon, lat, bs = "sos"), data = chl, method = "REML")
+summary(m)
 ```

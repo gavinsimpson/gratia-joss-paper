@@ -19,6 +19,10 @@ bibliography: paper.bib
 output: rticles::joss_article
 csl: apa.csl
 journal: JOSS
+knit: (function(inputFile, encoding) { 
+          rmarkdown::render(inputFile,
+                        encoding=encoding, 
+                        output_file = "manuscript.md")) })
 ---
 
 # Summary

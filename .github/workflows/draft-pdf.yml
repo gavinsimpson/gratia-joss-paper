@@ -3,8 +3,6 @@ on:
   push:
     paths: ['**.Rmd']
 
-name: render-rmarkdown-md-pdf
-
 jobs:
   render-rmarkdown:
     runs-on: ubuntu-latest
